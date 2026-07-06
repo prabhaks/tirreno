@@ -70,7 +70,11 @@ class Main extends \Tirreno\Controllers\Services\Base {
         $iters = count($result);
 
         for ($i = 0; $i < $iters; ++$i) {
-            $result[$i]['data'] = ['category' => $result[$i]['groupName']];
+            $result[$i]['data'] = [
+                'category'    => $result[$i]['groupName'],
+                'score'       => $result[$i]['score'] ?? null,
+                'country_iso' => $result[$i]['country_iso'] ?? null,
+            ];
         }
 
         return [
